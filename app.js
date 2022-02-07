@@ -1,15 +1,12 @@
 const express = require("express");
-const res = require("express/lib/response");
-
-const port = 8000;
 const app = express();
 
-const UserRoutes = require("./api/user/routes");
-const RecipeRoutes = require("./api/recipe/routes");
-const Recipe = require("./db/models/Recipe");
-const user = require("./db/models/user");
-app.use(express.json());
+const RecipeRoutes = require("./apis/Recipe/routes");
+const UserRoutes = require("./apis/User/routes");
+const connectDB = require("./database");
 
-router.listen(8000, () => {
-  console.log("the app is running on localhost 8000");
-});
+app.use(express.json());
+app.use("/user", UserRoutes);
+app.use("/recipe", RecipeRoutes);
+connectDB();
+app.listen(8080);
