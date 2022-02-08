@@ -8,7 +8,7 @@ exports.fetchIngredient = async (ingredientId , next) =>{
     catch(error){ next(error) }
 };
 
-exports.IngredientCreate = async (req, res) => {
+exports.ingredientCreate = async (req, res, next) => {
     try {
       const newIngredient = await Ingredient.create(req.body);
       return res.status(201).json(newIngredient);

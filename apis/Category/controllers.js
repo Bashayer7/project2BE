@@ -1,14 +1,16 @@
 const Category = require('../../models/Category');
 
-exports.fetchCategory = async (categoryId , next) =>{
-    try{
-        const category = await Category.findById(categoryId);
-        return category;
-    }
-    catch(error){ next(error) }
+
+exports.fetchCategory = async (categoryId, next) => {
+  try {
+    const category = await Category.findById(categoryId);
+    return category;
+  } catch (error) {
+    next(error)
+  }
 };
 
-exports.categoryCreate = async (req, res) => {
+exports.categoryCreate = async (req, res, next) => {
     try {
       if (req.file) {
         req.body.image = `/${req.file.path}`;
@@ -22,10 +24,12 @@ exports.categoryCreate = async (req, res) => {
 
   exports.categoryDelete = async (req, res, next) => {
     try {
-      await req.category.remove();
+      await Category.findByIdAndDelete({ _id: req.category.id });
       res.status(204).end();
     } 
-    catch (error) { next(error) }
+    catch (error) { 
+      next(error);
+     }
   };
 
   exports.categoryUpdate = async (req, res, next) => {
