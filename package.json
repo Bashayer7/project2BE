@@ -5,7 +5,12 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "nodemon app.js"
+=======
+    "start": "nodemon"
+    
+>>>>>>> 5ae1eedec2178a94701e83fd463761b9eb56d8af
   },
   "repository": {
     "type": "git",
@@ -17,6 +22,7 @@
   "bugs": {
     "url": "https://github.com/Bashayer7/project2BE/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/Bashayer7/project2BE#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -31,4 +37,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
   }
+=======
+  "homepage": "https://github.com/Bashayer7/project2BE#readme"
+>>>>>>> 5ae1eedec2178a94701e83fd463761b9eb56d8af
 }
