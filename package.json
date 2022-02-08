@@ -1,0 +1,22 @@
+{
+  "name": "project2be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bashayer7/project2BE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bashayer7/project2BE/issues"
+  },
+  "homepage": "https://github.com/Bashayer7/project2BE#readme"
+}
