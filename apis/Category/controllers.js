@@ -10,6 +10,15 @@ exports.fetchCategory = async (categoryId, next) => {
   }
 };
 
+exports.getCategory = async (req, res, next) => {
+  try {
+    const category = await Category.find();
+    return res.json(category);
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.categoryCreate = async (req, res, next) => {
     try {
       if (req.file) {

@@ -1,7 +1,7 @@
 const express = require('express');
 const upload = require('../../middleware/multer')
 
-const { fetchIngredient, ingredientCreate, ingredientDelete, ingredientUpdate} = require('./controllers');
+const { fetchIngredient, ingredientCreate, ingredientDelete, ingredientUpdate, getIngredient} = require('./controllers');
 const router = express.Router();
 
 
@@ -13,6 +13,7 @@ router.param('ingredientId', async (req, res, next, ingredientId) => {
     } 
     else next({status: 404, message: "Ingredient Not Found"})  });
 
+    router.get('/', getIngredient)
     router.delete('/:ingredientId', ingredientDelete);
     router.put('/:ingredientId', upload.single('image'), ingredientUpdate);
     router.post('/', ingredientCreate);
