@@ -1,4 +1,4 @@
-const res = require("express/lib/response");
+const Ingredient = require('../../models/user')
 
 //to disply data (assuming that we have a data)
 exports.fetchData = async (req, res) => {

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express = require('express');
 // const cors = require('cors');
 const connectDb = require('./database');
@@ -28,18 +27,4 @@ app.use((err, req, res, next) => {
 });
 
 connectDb();
-app.listen(process.env.PORT || 8000);
-=======
-const express = require("express");
-const app = express();
-
-const RecipeRoutes = require("./apis/Recipe/routes");
-const UserRoutes = require("./apis/User/routes");
-const connectDB = require("./database");
-
-app.use(express.json());
-app.use("/user", UserRoutes);
-app.use("/recipe", RecipeRoutes);
-connectDB();
-app.listen(8080);
->>>>>>> 5ae1eedec2178a94701e83fd463761b9eb56d8af
+app.listen(8000);
