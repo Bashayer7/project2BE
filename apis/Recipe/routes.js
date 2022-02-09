@@ -1,6 +1,6 @@
 const express = require('express');
 const upload = require('../../middleware/multer');
-const { fetchRecipe, createRecipe } = require('./controller');
+const { fetchRecipes, createRecipe } = require('./controller');
 const router = express.Router();
 
 
@@ -12,6 +12,7 @@ router.param('recipeId', async (req, res, next, recipeId) => {
     } 
     else next({status: 404, message: "Recipe Not Found"})  });
 
+    router.get("/", fetchRecipes);
     router.post("/", upload.single('image'), createRecipe);
 
     module.exports = router;
