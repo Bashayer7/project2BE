@@ -15,7 +15,7 @@ router.param('ingredientId', async (req, res, next, ingredientId) => {
 
     router.get('/', getIngredient)
     router.delete('/:ingredientId', ingredientDelete);
-    router.put('/:ingredientId', upload.single('image'), ingredientUpdate);
+    router.put('/:ingredientId', ingredientUpdate);
     router.post('/', ingredientCreate);
 
     module.exports = router;

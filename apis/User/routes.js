@@ -1,4 +1,4 @@
-const res = require("express/lib/response");
+const tres = require("express/lib/response");
 const user = require("../../models/user");
 
 //to disply data (assuming that we have a data)
