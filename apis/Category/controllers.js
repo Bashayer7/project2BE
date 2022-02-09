@@ -10,9 +10,9 @@ exports.fetchCategory = async (categoryId, next) => {
   }
 };
 
-exports.getCategory = async (req, res, next) => {
+exports.getCategories = async (req, res, next) => {
   try {
-    const category = await Category.find();
+    const category = await Category.find().populate("recipes","name");
     return res.json(category);
   } catch (error) {
     next(error);

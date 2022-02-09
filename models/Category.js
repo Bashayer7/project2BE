@@ -6,6 +6,7 @@ const CategorySchema = mongoose.Schema(
         name: {type: String , unique:true, required:true},
         description: {type: String},
         image: {type: String},
+        recipes: [{type: mongoose.Schema.Types.ObjectId, ref: "Recipe"}],
     },
     { timestamps: true }
     );

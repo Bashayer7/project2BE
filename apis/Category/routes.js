@@ -1,6 +1,6 @@
 const express = require('express');
 const upload = require('../../middleware/multer');
-const { fetchCategory, categoryCreate, categoryDelete, categoryUpdate, getCategory} = require('./controllers');
+const { fetchCategory, categoryCreate, categoryDelete, categoryUpdate, getCategories} = require('./controllers');
 const router = express.Router();
 
 
@@ -13,7 +13,7 @@ router.param('categoryId', async (req, res, next, categoryId) => {
     else next({status: 404, message: "Category Not Found"})  
   });
 
-    router.get("/", getCategory);
+    router.get("/", getCategories);
     router.delete('/:categoryId', categoryDelete);
     router.put('/:categoryId', upload.single('image'), categoryUpdate);
     router.post('/', upload.single("image"), categoryCreate);
