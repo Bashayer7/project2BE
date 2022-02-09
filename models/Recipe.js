@@ -6,8 +6,8 @@ const RecipeSchema = mongoose.Schema(
     name: { type: String },
     description: { type: String },
     image: { type: String },
-    ingredients: [{ type: mongoose.Schema.Types.ObjectId, ref: "Ingredient" }],
     categories: [{type: mongoose.Schema.Types.ObjectId, ref: "Category"}],
+    ingredients: [{ type: mongoose.Schema.Types.ObjectId, ref: "Ingredient" }],
   },
   { timestamps: true }
 );

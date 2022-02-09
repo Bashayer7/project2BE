@@ -1,4 +1,5 @@
 const Category = require('../../models/Category');
+const Ingredient = require('../../models/Ingredient');
 const Recipe = require('../../models/Recipe');
 
 exports.fetchRecipe = async (req, res, next) => {
@@ -19,9 +20,14 @@ exports.createRecipe = async (req, res, next) =>{
     const categoryId = req.params.categoryId;
     req.body = {...req.body, category: categoryId}
     const newRecipe = await Recipe.create(req.body);
-    req.body.Category.map(e => await Category.findOneAndUpdate(
-      {_id: req.params.categoryId},
+      // category map:
+    req.body.categories.map(async(e) => await Category.findOneAndUpdate(
+      {_id: e},
       {$push:{recipes: newRecipe._id}}))
+      // ingredient map:
+      req.body.ingredients.map(async(e) => await Ingredient.findOneAndUpdate(
+        {_id: e},
+        {$push:{recipes: newRecipe._id}}))
     return res.status(201).json(newRecipe);
   } 
   catch (error) { next(error) }

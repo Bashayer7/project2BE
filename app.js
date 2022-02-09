@@ -1,16 +1,16 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const connectDB = require('./database');
 const categoryRoutes = require('./apis/Category/routes');
 const ingredientRoutes = require('./apis/Ingredient/routes')
-// const recipeRoutes = require('./apis/Category/routes')
-// const userRoutes = require('./apis/User/routes')
+const recipeRoutes = require('./apis/Category/routes')
+const userRoutes = require('./apis/User/routes')
 const passport = require('passport');
 const app = express();
 const { localStrategy, jwtStrtegy } = require("./middleware/passport")
 
 connectDB();
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json());
 
@@ -18,8 +18,8 @@ app.use(passport.initialize());
 passport.use(localStrategy);
 passport.use(jwtStrtegy)
 
-// app.use("/api", userRoutes);
-// app.use('/api/recipe', recipeRoutes);
+app.use("/api", userRoutes);
+app.use('/api/recipe', recipeRoutes);
 app.use('/api/category', categoryRoutes);
 app.use('./api/ingredient', ingredientRoutes);
 app.use((err, req, res, next) => {
@@ -28,5 +28,5 @@ app.use((err, req, res, next) => {
   });
 });
 
-connectDb();
-app.listen(8000);
+
+app.listen(process.env.PORT || 8000);
